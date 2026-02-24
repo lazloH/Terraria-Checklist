@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Terraria Research Checklist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-header">
+        <h1>Terraria Research</h1>
+        <p class="subtitle">Journey Mode checklist (local)</p>
+      </div>
+
+      <!-- SEARCH -->
+      <div class="sidebar-section">
+        <label class="field-label" for="search">Search</label>
+        <input id="search" type="text" placeholder="Search items..." />
+      </div>
+
+      <!-- CATEGORY FILTER -->
+      <div class="sidebar-section">
+        <label class="field-label" for="categoryFilter">Category</label>
+        <select id="categoryFilter">
+          <option value="">All categories</option>
+        </select>
+      </div>
+
+      <!-- FILTER CHECKBOXES -->
+      <div class="sidebar-section">
+        <label class="field-label">Filters</label>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="hideCompleted" />
+          Hide researched
+        </label>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="showOnlyCompleted" />
+          Show only researched
+        </label>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="showOnlyUnresearched" />
+          Show only unresearched
+        </label>
+      </div>
+
+      <!-- PROGRESS SUMMARY -->
+      <div class="sidebar-section">
+        <div class="progress-summary">
+          <div class="progress-summary-row">
+            <span>Total researched</span>
+            <span id="summary-count"></span>
+          </div>
+          <div class="progress-bar">
+            <div id="summary-bar" class="progress-bar-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- IMPORT + RESET -->
+      <div class="sidebar-section">
+        <label class="import-btn">
+          Import Player (.plr)
+          <input id="playerFile" type="file" accept=".plr" hidden />
+        </label>
+        <button id="resetAll" class="secondary-btn">Reset all</button>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="sidebar-footer">
+        <span id="itemCount"></span>
+      </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+      <header class="main-header">
+        <h2>Items</h2>
+        <span id="progress"></span>
+      </header>
+
+      <section id="items" class="items-grid"></section>
+
+      <div id="pagination" class="pagination"></div>
+
+    </main>
+
+  </div>
+<script type="module" src="decryptPlr.js"></script>
+<script type="module" src="parsePlayer.js"></script>
+<script type="module" src="app.js"></script>
+
+</script>
+</body>
+</html>
